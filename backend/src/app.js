@@ -33,7 +33,7 @@ const listChats = async (ctx) => {
 const createChat = async (ctx) => {
   const params = ctx.request.body;
 
-  const chat = await database.Chat.create({message: params.message});
+  const chat = await database.Chat.create({message: params.message, user: params.user});
 
   ctx.body = await chat.toJSON();
   ctx.status = 201;
